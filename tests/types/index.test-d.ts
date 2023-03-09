@@ -6,10 +6,10 @@ import findQueryCjsImport = require('../../');
 import Movie from './Movie';
 import {
   ArrayQueryBuilder,
+  MaybeSingleQueryBuilder,
   NumberQueryBuilder,
   PageQueryBuilder,
   QueryBuilder,
-  SingleQueryBuilder,
 } from 'objection';
 
 const findQueryCjs = require('../../');
@@ -37,7 +37,7 @@ findQuery(Movie).build({}, Movie.query().page(1, 2));
 expectType<ArrayQueryBuilder<QueryBuilder<Movie>>>(Movie.query().insertAndFetch([]));
 findQuery(Movie).build({}, Movie.query().insertAndFetch([]));
 
-expectType<SingleQueryBuilder<QueryBuilder<Movie>>>(Movie.query().findById(1));
+expectType<MaybeSingleQueryBuilder<QueryBuilder<Movie>>>(Movie.query().findById(1));
 findQuery(Movie).build({}, Movie.query().findById(1));
 
 expectType<NumberQueryBuilder<QueryBuilder<Movie>>>(Movie.query().update());

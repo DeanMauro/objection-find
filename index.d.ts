@@ -1,6 +1,7 @@
 import {
   ArrayQueryBuilder,
   Constructor,
+  MaybeSingleQueryBuilder,
   Model,
   ModelClass,
   NumberQueryBuilder,
@@ -158,6 +159,12 @@ export class FindQueryBuilder<M extends Model, R = M[]> {
     params: Record<string, any>,
     builder?: SingleQueryBuilder<QueryBuilder<M>>
   ): SingleQueryBuilder<QueryBuilder<M>>;
+
+  build(
+    // eslint-disable-next-line
+    params: Record<string, any>,
+    builder?: MaybeSingleQueryBuilder<QueryBuilder<M>>
+  ): MaybeSingleQueryBuilder<QueryBuilder<M>>;
 
   build(
     // eslint-disable-next-line
